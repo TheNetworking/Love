@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tebak Rasa Cintaku ❤️</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe6f0, #ffeaea);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    h1 {
+      color: #d63384;
+      font-size: 2.5em;
+    }
+
+    p {
+      font-size: 1.3em;
+      color: #800040;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1em;
+      border: 2px solid #ff4d88;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #ff4d88;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #ff1a66;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎯 Tebak Rasa Cintaku 🎯</h1>
+  <p>Tebak dari 1 sampai 10... seberapa besar cintaku ke kamu?</p>
+
+  <input type="number" id="guess" min="1" max="10" />
+  <button onclick="checkLove()">Tebak Sekarang 💖</button>
+
+  <div class="message" id="message"></div>
+
+  <!-- Musik latar -->
+  <audio id="bg-music" loop hidden>
+    <source src="https://cdn.pixabay.com/audio/2023/03/30/audio_8ad5a5d4b5.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    const correctAnswer = 10;
+    const messageBox = document.getElementById("message");
+    const music = document.getElementById("bg-music");
+
+    function checkLove() {
+      const guess = parseInt(document.getElementById("guess").value);
+      if (guess === correctAnswer) {
+        messageBox.innerHTML = "🎉 Betul! Aku mencintaimu sebesar 10/10! 💘 Kamu luar biasa! 😍";
+        music.play();
+      } else if (guess < correctAnswer) {
+        messageBox.innerHTML = "Hmm... Lebih tinggi dong! Aku cinta kamu lebih besar dari itu!";
+      } else {
+        messageBox.innerHTML = "Wahh... Lebih kecil dikit! Tapi kamu tetap yang paling aku cinta!";
+      }
+    }
+  </script>
+</body>
+</html>
